@@ -2,6 +2,7 @@
 using EmployeeApi.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq.Expressions;
 
 namespace EmployeeApi.Controllers
 {
@@ -16,9 +17,15 @@ namespace EmployeeApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(EmployeeViewModel employeeView)
+        public IActionResult Add([FromForm]EmployeeViewModel employeeView)
         {
-            var employee = new EmployeeModel(employeeView.Name, employeeView.Age, null);
+            var filePath = Path.Combine("Storage", employeeView.Photo.FileName);
+
+            using Stream fileStream = new FileStream(filePath, FileMode.Create);
+
+            employeeView.Photo.CopyTo(fileStream);
+
+            var employee = new EmployeeModel(employeeView.Name, employeeView.Age, filePath);
 
             _employeeRepository.Add(employee);
 
