@@ -16,6 +16,22 @@ namespace EmployeeApi.Controllers
             _employeeRepository = employeeRepository;
         }
 
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var employees = _employeeRepository.GetAll();
+
+            return Ok(employees);
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            var employee = _employeeRepository.Get(id);
+
+            return Ok(employee);
+        }
+
         [HttpPost]
         public IActionResult Add([FromForm]EmployeeViewModel employeeView)
         {
@@ -32,12 +48,15 @@ namespace EmployeeApi.Controllers
             return Ok();
         }
 
-        [HttpGet]
-        public IActionResult GetAll()
+        [HttpPost]
+        [Route("{id}/download")]
+        public IActionResult DownloadPhoto(int id)
         {
-            var employees = _employeeRepository.GetAll();
+            var employee = _employeeRepository.Get(id);
 
-            return Ok(employees);
-        }
+            var dataBytes = System.IO.File.ReadAllBytes(employee.Photo);
+
+            return File(dataBytes, "image/jpg");
+        } 
     }
 }

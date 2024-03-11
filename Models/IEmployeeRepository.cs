@@ -4,5 +4,6 @@
     {
         void Add(EmployeeModel employee);
         List<EmployeeModel> GetAll();
+        EmployeeModel? Get(int id);
     }
 }

@@ -15,6 +15,11 @@ namespace EmployeeApi.Infrastructure
             _context.SaveChanges();
         }
 
+        public EmployeeModel? Get(int id)
+        {
+            return _context.Employees.FirstOrDefault(x => x.Id == id);
+        }
+
         public List<EmployeeModel> GetAll()
         {
             return _context.Employees.ToList();
