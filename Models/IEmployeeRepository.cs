@@ -2,7 +2,7 @@
 {
     public interface IEmployeeRepository
     {
-        void Add(Employee employee);
-        List<Employee> GetAll();
+        void Add(EmployeeModel employee);
+        List<EmployeeModel> GetAll();
     }
 }
