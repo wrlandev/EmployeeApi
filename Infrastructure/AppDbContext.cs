@@ -10,6 +10,6 @@ namespace EmployeeApi.Infrastructure
 
         }
 
-        public DbSet<EmployeeModel> Tasks { get; set; }
+        public DbSet<EmployeeModel> Employees { get; set; }
     }
 }
