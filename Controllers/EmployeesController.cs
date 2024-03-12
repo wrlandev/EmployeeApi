@@ -1,5 +1,6 @@
 ﻿using EmployeeApi.Models;
 using EmployeeApi.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq.Expressions;
@@ -16,6 +17,7 @@ namespace EmployeeApi.Controllers
             _employeeRepository = employeeRepository;
         }
 
+        [Authorize]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -24,6 +26,7 @@ namespace EmployeeApi.Controllers
             return Ok(employees);
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -32,6 +35,7 @@ namespace EmployeeApi.Controllers
             return Ok(employee);
         }
 
+        [Authorize]
         [HttpPost]
         public IActionResult Add([FromForm]EmployeeViewModel employeeView)
         {
@@ -48,6 +52,7 @@ namespace EmployeeApi.Controllers
             return Ok();
         }
 
+        [Authorize]
         [HttpPost]
         [Route("{id}/download")]
         public IActionResult DownloadPhoto(int id)
