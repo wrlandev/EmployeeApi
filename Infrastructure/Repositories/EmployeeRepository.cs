@@ -1,4 +1,5 @@
-﻿using EmployeeApi.Domain.Models;
+﻿using EmployeeApi.Domain.DTOs;
+using EmployeeApi.Domain.Models;
 
 namespace EmployeeApi.Infrastructure.Repositories
 {
@@ -20,9 +21,18 @@ namespace EmployeeApi.Infrastructure.Repositories
             return _context.Employees.FirstOrDefault(x => x.Id == id);
         }
 
-        public List<EmployeeModel> GetAll(int pageNumber, int pageQuantity)
+        public List<EmployeeDto> GetAll(int pageNumber, int pageQuantity)
         {
-            return _context.Employees.Skip(pageNumber * pageQuantity).Take(pageQuantity).ToList();
+            return _context.Employees.Skip(pageNumber * pageQuantity)
+                .Take(pageQuantity)
+                .Select(x =>
+                new EmployeeDto()
+                {
+                    Name = x.Name,
+                    Age = x.Age,
+                    Photo = x.Photo
+                })
+                .ToList();
         }
     }
 }
