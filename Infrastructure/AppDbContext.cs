@@ -1,4 +1,4 @@
-﻿using EmployeeApi.Models;
+﻿using EmployeeApi.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeApi.Infrastructure

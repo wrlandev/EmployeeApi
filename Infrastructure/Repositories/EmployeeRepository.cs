@@ -1,6 +1,6 @@
-﻿using EmployeeApi.Models;
+﻿using EmployeeApi.Domain.Models;
 
-namespace EmployeeApi.Infrastructure
+namespace EmployeeApi.Infrastructure.Repositories
 {
     public class EmployeeRepository : IEmployeeRepository
     {

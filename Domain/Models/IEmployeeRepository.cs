@@ -1,4 +1,4 @@
-﻿namespace EmployeeApi.Models
+﻿namespace EmployeeApi.Domain.Models
 {
     public interface IEmployeeRepository
     {

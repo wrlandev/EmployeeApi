@@ -1,5 +1,5 @@
-﻿using EmployeeApi.Models;
-using EmployeeApi.ViewModel;
+﻿using EmployeeApi.Application.ViewModel;
+using EmployeeApi.Domain.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;

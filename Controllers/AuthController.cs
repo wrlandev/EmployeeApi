@@ -1,4 +1,4 @@
-﻿using EmployeeApi.Services;
+﻿using EmployeeApi.Application.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeApi.Controllers
@@ -12,7 +12,7 @@ namespace EmployeeApi.Controllers
         {
             if (username == "teste" && password == "123")
             {
-                var token = TokenService.GenerateToken(new Models.EmployeeModel());
+                var token = TokenService.GenerateToken(new Domain.Models.EmployeeModel());
                 return Ok(token);
             }
 

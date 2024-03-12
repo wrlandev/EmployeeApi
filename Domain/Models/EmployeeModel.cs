@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EmployeeApi.Models
+namespace EmployeeApi.Domain.Models
 {
     public class EmployeeModel
     {
@@ -13,9 +13,9 @@ namespace EmployeeApi.Models
         public EmployeeModel() { }
         public EmployeeModel(string name, int age, string photo)
         {
-            this.Name = name;
-            this.Age = age;
-            this.Photo = photo;
+            Name = name;
+            Age = age;
+            Photo = photo;
         }
     }
 }

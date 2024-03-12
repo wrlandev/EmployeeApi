@@ -1,6 +1,7 @@
 using EmployeeApi;
+using EmployeeApi.Domain.Models;
 using EmployeeApi.Infrastructure;
-using EmployeeApi.Models;
+using EmployeeApi.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
