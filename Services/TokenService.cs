@@ -13,9 +13,9 @@ namespace EmployeeApi.Services
             var key = Encoding.ASCII.GetBytes(Key.Secret);
             var tokenConfig = new SecurityTokenDescriptor
             {
-                Subject = new System.Security.Claims.ClaimsIdentity(new Claim[]
+                Subject = new ClaimsIdentity(new Claim[]
                 {
-                    new Claim("employeeId", employee.Id.ToString())
+                      new Claim("employeeId", employee.Id.ToString()),
                 }),
                 Expires = DateTime.UtcNow.AddHours(3),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
@@ -25,7 +25,10 @@ namespace EmployeeApi.Services
             var token = tokenHandler.CreateToken(tokenConfig);
             var tokenString = tokenHandler.WriteToken(token);
 
-            return new { token = tokenString };
+            return new
+            {
+                token = tokenString
+            };
         }
     }
 }
