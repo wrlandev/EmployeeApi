@@ -12,9 +12,12 @@ namespace EmployeeApi.Controllers
     public class EmployeesController : ControllerBase
     {
         private readonly IEmployeeRepository _employeeRepository;
-        public EmployeesController(IEmployeeRepository employeeRepository)
+        private readonly ILogger<EmployeesController> _logger;
+
+        public EmployeesController(IEmployeeRepository employeeRepository, ILogger<EmployeesController> logger)
         {
-            _employeeRepository = employeeRepository;
+            _employeeRepository = employeeRepository ?? throw new ArgumentNullException(nameof(employeeRepository));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         
