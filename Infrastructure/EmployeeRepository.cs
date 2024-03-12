@@ -20,9 +20,9 @@ namespace EmployeeApi.Infrastructure
             return _context.Employees.FirstOrDefault(x => x.Id == id);
         }
 
-        public List<EmployeeModel> GetAll()
+        public List<EmployeeModel> GetAll(int pageNumber, int pageQuantity)
         {
-            return _context.Employees.ToList();
+            return _context.Employees.Skip(pageNumber * pageQuantity).Take(pageQuantity).ToList();
         }
     }
 }

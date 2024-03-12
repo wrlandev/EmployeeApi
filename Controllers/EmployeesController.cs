@@ -17,11 +17,11 @@ namespace EmployeeApi.Controllers
             _employeeRepository = employeeRepository;
         }
 
-        [Authorize]
+        
         [HttpGet]
-        public IActionResult GetAll()
+        public IActionResult GetAll(int pageNumber, int pageQuantity)
         {
-            var employees = _employeeRepository.GetAll();
+            var employees = _employeeRepository.GetAll(pageNumber, pageQuantity);
 
             return Ok(employees);
         }
