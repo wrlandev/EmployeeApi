@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240311220108_v1.0")]
+    [Migration("20240322225152_v1.0")]
     partial class v10
     {
         /// <inheritdoc />
@@ -24,7 +24,7 @@ namespace EmployeeApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("EmployeeApi.Models.EmployeeModel", b =>
+            modelBuilder.Entity("EmployeeApi.Domain.Models.EmployeeModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

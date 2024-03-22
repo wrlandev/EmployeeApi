@@ -21,7 +21,7 @@ namespace EmployeeApi.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("EmployeeApi.Models.EmployeeModel", b =>
+            modelBuilder.Entity("EmployeeApi.Domain.Models.EmployeeModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
